@@ -13,6 +13,7 @@ export function yeet<TError extends new (...args: any[]) => Error, TReturn = any
   ...params: ConstructorParameters<TError>
 ): NotNullish<TReturn> {
   if (!messageOrErrorClass || typeof messageOrErrorClass === 'string') {
+    // @ts-ignore
     throw new Error(messageOrErrorClass, { cause: params?.[0] });
   }
 
